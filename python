@@ -1,0 +1,50 @@
+""" Jack and Rose are managing the inventory for their respective stores. Each store has a list of items and the quantity they have in stock, represented as dictionaries. They need to merge these inventories. If an item is in both inventories, multiply their quantities. If an item is only in one inventory, include it with its quantity in the merged inventory.
+
+
+
+Help Jack and Rose to implement the above task using a dictionary.
+
+Input format :
+The first line of input consists of an integer n, representing the number of items in the first dictionary dict1.
+
+The next n lines each contain two integers
+
+The first line contains the item (key), and
+The second line contains the quantity (value).
+The following line consists of an integer m, representing the number of items in the second dictionary dict2.
+
+The next m lines each contain two integers
+
+The first integer contains the item (key), and
+The second integer contains the quantity (value).
+Output format :
+The output displays a dictionary where if a key is present in both dictionaries, the values are multiplied; otherwise, the key and its corresponding value are displayed."""
+
+
+n = int(input())
+dict1 = {}
+for _ in range(n):
+    key= int(input())
+    value = int(input())
+    dict1[key] = value
+
+m = int(input())
+dict2 = {}
+for _ in range(m):
+    key= int(input())
+    value = int(input())
+    dict2[key] = value
+
+merged_dict = {}
+
+for key in dict1:
+    if key in dict2:
+        merged_dict[key] = dict1[key] * dict2[key]
+    else:
+        merged_dict[key] = dict1[key]
+
+for key in dict2:
+    if key not in merged_dict:
+        merged_dict[key] = dict2[key]
+
+print(merged_dict)
